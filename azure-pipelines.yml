@@ -11,8 +11,8 @@ pool:
 
 # Put the version for the CI pipeline
 variables:
-  major: 2
-  minor: 0
+  major: 1
+  minor: 1
 
 name: $(major).$(minor)$(Rev:.r)
 
