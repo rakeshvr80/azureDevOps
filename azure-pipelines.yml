@@ -1,19 +1,10 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
-
 pool:
   vmImage: ubuntu-latest
-
-# Put the version for the CI pipeline
 variables:
-  major: 2
-  minor: 0
-
+   major: 2
+   minor: 0
 stages:
 - stage:
   displayName: Build_Branch_Version_Number
@@ -27,7 +18,6 @@ stages:
            echo "##vso[build.updatebuildnumber]$(major).$(minor)-$(Build.SourceBranchName).$(brpatch)"
         condition: ne(variables['Build.Reason'], 'PullRequest')
         name: SetBranchBuildName
-
 - stage: Build_Steps
   displayName: Build_Steps
   jobs:  
@@ -39,4 +29,4 @@ stages:
     - script: |
           echo Add other tasks to build, test, and deploy your project.
           echo See https://aka.ms/yaml
-      name: 'Run_a_multi_line_cript'
+      name: Run_a_multi_line_cript
